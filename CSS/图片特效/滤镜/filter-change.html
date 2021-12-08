@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="filter-style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="box">
+    <img class="pic" id="pic" src="../../../pictures/purple-girl.jpg" alt="">
+    <div class="bar">
+      <div class="bar-tips">效果：<span id="tips">0%</span></div>
+      <div class="bar-body" id="barBody">
+          <div class="bar-process" id="barProcess"></div>
+          <div class="bar-btn" id="barBtn"></div>
+      </div>
+    </div>
+    <div class="change-btns">
+      <!-- 除了hue-rotate(deg)和blur(px)、drop-shadow(px px px #)，其他都为0-100% -->
+      <button onclick="changeFilter('grayscale')">灰度</button>
+      <button onclick="changeFilter('sepia')">褐色</button>
+      <button onclick="changeFilter('saturate')">饱和度</button>
+      <button onclick="changeFilter('hue-rotate')">色相旋转</button>
+      <button onclick="changeFilter('invert')">反色</button>
+      <button onclick="changeFilter('opacity')">透明度</button>
+      <button onclick="changeFilter('brightness')">亮度</button>
+      <button onclick="changeFilter('contrast')">对比度</button>
+      <button onclick="changeFilter('blur')">模糊</button>
+      <button onclick="changeFilter('drop-shadow')">阴影</button>
+      <button onclick="changeFilter('none')">原始</button>
+    </div>
+  </div>
+  <script src="filter-effect.js"></script>
+</body>
+</html>
