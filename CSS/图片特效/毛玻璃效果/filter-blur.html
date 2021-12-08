@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      background: url('/pictures/purple-girl.jpg') no-repeat;
+      background-size: 100% 100vh;
+    }
+    .center-box {
+      width: 800px;
+      height: 500px;
+      margin: 250px auto;
+      background-color: rgba(243, 229, 243, 0.2);
+      /* -webkit-backdrop-filter: blur(8px); */
+      /* backdrop-filter: blur(8px);
+      filter: none; */
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+    }
+    button {
+      width: 120px;
+      height: 30px;
+      margin-left: 10px;
+      margin-top: 10px;
+      color: #fff;
+      font-weight: 600;
+      background-color: rgba(243, 229, 243, .2);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(0, 0, 0, .5);
+    }
+    h1 {
+      display: block;
+      height: 200px;
+      line-height: 200px;
+      font-size: 100px;
+      color: rgb(160, 81, 249);
+      background-color: rgba(255, 97, 183, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <button onclick="changeStyle('init')">init</button>
+    <button onclick="changeStyle('filter')">filter</button>
+    <button onclick="changeStyle('backdrop-filter')">backdrop-filter</button>
+  </div>
+  <div class="center-box" id="box"><h1>非礼勿视</h1></div>
+  <script>
+    var box = document.getElementById('box');
+    function changeStyle(boxStyle){
+      if(boxStyle==null) return;
+      if(boxStyle == 'init') {
+        box.style.filter='none';
+        box.style.backdropFilter = 'none';
+      }else if (boxStyle == 'filter') {
+        box.style.backdropFilter = 'none';
+        box.style.filter= 'blur(8px)';
+      }else{
+        box.style.filter= 'none';
+        box.style.backdropFilter = 'blur(8px)';
+      }
+    }
+  </script>
+</body>
+</html>
