@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../views/Home.vue";
+import Home from "../views/home.vue";
 
 const routes = [
   {
@@ -9,7 +9,25 @@ const routes = [
     children: [
       {
         path: "/firstchildren",
-        component: () => import("../views/homeChidren/first-children.vue"),
+        component: () => import("../views/homechidren/first-children.vue"),
+      },
+    ],
+  },
+  {
+    path: "/index",
+    name: "LoginIndex",
+    redirect: "login",
+    component: () => import("../views/login/index.vue"),
+    children: [
+      {
+        path: "/login",
+        component: () => import("../views/login/login.vue"),
+      },{
+        path: "/regist",
+        component: () => import("../views/login/regist.vue"),
+      },{
+        path: "/forget",
+        component: () => import("../views/login/forget.vue"),
       },
     ],
   },
