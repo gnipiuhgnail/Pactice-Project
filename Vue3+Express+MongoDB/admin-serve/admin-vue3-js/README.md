@@ -42,6 +42,24 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
  3. 数据库：
   mongoose
   Cookie产生的过程
+### 请求
+对于唯一值的创建，如果存在，后端返回响应信息，前端在获得响应之前统一处理。
+el-button type 三目运算符 用不了？
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -67,4 +85,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 确认账号（查看账号是否存在）
 重置密码（新密码、确认密码、账号[修改]、验证码
 
-重置
+
+
+

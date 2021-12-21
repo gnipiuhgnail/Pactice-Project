@@ -1,3 +1,5 @@
+import { ElMessage } from "element-plus";
+
 const axios = require("axios");
 // import Cookies from "js-cookie";
 const service = axios.create({
@@ -23,6 +25,14 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   function (response) {
     // 对响应数据做点什么
+    if (response.data.code) {
+      ElMessage({
+        message: response.data.msg || "Error",
+        type: "error",
+        duration: 5 * 1000,
+      });
+    }
+
     return response;
   },
   function (error) {

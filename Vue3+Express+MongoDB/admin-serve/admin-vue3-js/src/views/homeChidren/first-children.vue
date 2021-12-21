@@ -40,7 +40,7 @@
             autocomplete="off"
           ></el-input>
         </el-form-item>
-        <el-form-item label="确认密码" prop="checkPass" style="display: none">
+        <el-form-item label="确认密码" prop="checkPass">
           <el-input
             type="password"
             v-model="ruleFormDate.checkPass"
@@ -77,6 +77,7 @@ export default {
         callback(new Error("请输入密码"));
       } else {
         if (formState.ruleFormDate.value.checkPass !== "") {
+          console.log(formState.ruleForm)
           formState.ruleForm.validateField("checkPass");
         }
         callback();
@@ -86,6 +87,7 @@ export default {
       if (value === "") {
         callback(new Error("请再次输入密码"));
       } else if (value !== formState.ruleFormDate.password) {
+        
         callback(new Error("两次输入密码不一致!"));
       } else {
         callback();

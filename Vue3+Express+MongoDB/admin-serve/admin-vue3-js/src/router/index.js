@@ -28,7 +28,7 @@ const routes = [
       },{
         path: "/forget",
         component: () => import("../views/login/forget.vue"),
-      },
+      }
     ],
   },
   // {
