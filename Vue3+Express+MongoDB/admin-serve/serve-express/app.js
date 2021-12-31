@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+var token = require('./token/token');
 // 2. 允许前端跨域请求 
 // var cors = require('cors')
 
@@ -16,6 +16,20 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+//解析token获取用户信息
+app.use(function(req, res, next) {
+  var token = req.headers['authorization'];
+  if(token == undefined){
+      return next();
+  }else{
+      vertoken.getToken(token).then((data)=> {
+          req.data = data;
+          return next();
+      }).catch((error)=>{
+          return next();
+      })
+  }
+});
 // 将app传过去并执行users.js里面的函数
 require('./routes/users')(app)
 // 1. 允许前端跨域请求

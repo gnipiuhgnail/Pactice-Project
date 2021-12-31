@@ -35,7 +35,7 @@ export default {
             `/getuser/${formData.ruleFormDate.name}`
           );
           if (!res.data.code) {
-            emit("confirmName", {
+            emit("confirm", {
               id: res.data._id,
               name: res.data.name,
               active: 2,

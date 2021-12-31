@@ -1,7 +1,7 @@
 <template>
   <el-form :model="ruleFormDate" status-icon :rules="rules" ref="ruleForm">
     <el-form-item>
-      {{ userData.name }}
+      用户：{{ userData.name }}
     </el-form-item>
     <el-form-item prop="password">
       <el-input
@@ -60,7 +60,7 @@ export default {
             formData.ruleFormDate
           );
           if (!res.data.code) {
-            emit("confirmPass", {
+            emit("confirm", {
               active: 3,
             });
           }

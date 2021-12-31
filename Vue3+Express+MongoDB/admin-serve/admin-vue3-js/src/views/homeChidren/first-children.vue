@@ -62,7 +62,11 @@ import { reactive, ref, toRefs } from "@vue/reactivity";
 // import axios from "axios";
 import request from "@/utils/request";
 import { onMounted } from "@vue/runtime-core";
+// import numberInput from "@/components/number-input.vue"
 export default {
+  // components:{
+  //   numberInput,
+  // },
   setup() {
     const tableData = ref([]);
     var checkName = (rule, value, callback) => {

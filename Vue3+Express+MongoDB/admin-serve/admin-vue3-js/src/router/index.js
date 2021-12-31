@@ -11,6 +11,10 @@ const routes = [
         path: "/firstchildren",
         component: () => import("../views/homechidren/first-children.vue"),
       },
+      {
+        path: "/secondchildren",
+        component: () => import("../views/homechidren/second-children.vue"),
+      },
     ],
   },
   {

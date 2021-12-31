@@ -13,9 +13,15 @@
     <!-- 2. 输入新密码，确认密码 -->
     <!-- 3. 显示“重置密码成功”，5秒倒计时自动跳转登录页或点击“前往登录页”按钮前往登录页 -->
     <div class="forgetMain">
-      <keep-alive>
-        <component :is="currentTabComponent"></component>
-      </keep-alive>
+      <component
+        :is="currentTabComponent"
+        @confirm="onConfirm"
+        :userData="userData"
+      ></component>
+
+      <!-- <keep-alive>
+        
+      </keep-alive> -->
       <!-- <confirmName @confirmName="onConfirmName" />
       <confirmPass :userData="userData" @confirmPass="onConfirmPass" /> -->
     </div>
@@ -25,10 +31,12 @@
 import { reactive, toRefs } from "@vue/reactivity";
 import confirmName from "@/components/confirmName.vue";
 import confirmPass from "@/components/confirmPass.vue";
+import confirmFinish from "@/components/confirmFinish.vue";
 export default {
   components: {
     confirmName,
     confirmPass,
+    confirmFinish,
   },
   setup() {
     const state = reactive({
@@ -39,18 +47,20 @@ export default {
         name: "",
       },
     });
-    const onConfirmName = (msg) => {
-      state.userData.id = msg.id;
-      state.userData.name = msg.name;
+    const onConfirm = (msg) => {
       state.active = msg.active;
+      if (msg.active == 2) {
+        state.userData.id = msg.id;
+        state.userData.name = msg.name;
+        state.currentTabComponent = "confirmPass";
+      } else if (msg.active == 3) {
+        state.currentTabComponent = "confirmFinish";
+      }
     };
-    const onConfirmPass = (msg) => {
-      state.active = msg.active;
-    };
+
     return {
       ...toRefs(state),
-      onConfirmName,
-      onConfirmPass,
+      onConfirm,
     };
   },
 };
