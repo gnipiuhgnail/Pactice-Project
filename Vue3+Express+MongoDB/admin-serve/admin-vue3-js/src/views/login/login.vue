@@ -32,6 +32,7 @@
       </el-form-item>
     </el-form>
   </div>
+  
 </template>
 <script>
 // reactive更适合定义复杂的数据类型（json/arr）、ref适合定义基本数据类型（可接收基本数据类型和对象）
@@ -41,6 +42,7 @@ import request from "@/utils/request";
 import { useRouter } from "vue-router";
 import { ElMessage } from "element-plus";
 import { checkName, checkPass } from "@/utils/validate";
+import { nextTick, onMounted } from "@vue/runtime-core";
 export default {
   setup() {
     const router = useRouter();
@@ -62,6 +64,10 @@ export default {
     const loginForm = reactive({
       ruleForm: "",
       ruleFormDate: { password: "", name: "" },
+      fileSelect: "",
+      fileElem: "",
+      files: "",
+      fileList: {},
     });
     loginForm.objMsg = {
       // 表单校验的参数
@@ -99,12 +105,51 @@ export default {
         }
       });
     };
+    const handleFiles = (e) => {
+      console.log(e)
+      loginForm.fileList = new FormData();
+      for (var i = 0; i < e.target.files.length; i++) {
+        loginForm.files = e.target.files[i].name;
+        loginForm.fileList.append(
+          `${e.target.files[i].name}`,
+          e.target.files[i]
+        );
+      }
+    };
+    const submitUpload = async () => {};
+    onMounted(() => {
+      loginForm.fileSelect = document.getElementById("fileSelect");
+      loginForm.fileElem = document.getElementById("fileElem");
+      nextTick(() => {
+        loginForm.fileSelect.addEventListener(
+          "click",
+          function (e) {
+            console.log("e", e);
+            if (loginForm.fileElem) {
+              console.log(loginForm.fileElem);
+              loginForm.fileElem.click();
+            }
+            e.preventDefault();
+          },
+          false
+        );
+      });
+    });
+
+    const update = async () => {
+      console.log(loginForm.fileList);
+      const res = await request.post("/upload", loginForm.fileList);
+      console.log(res);
+    };
     // const resetForm = () => {
     //   loginForm.ruleForm.resetFields();
     // };
     return {
       ...toRefs(loginForm),
       submitForm,
+      handleFiles,
+      submitUpload,
+      update,
       // resetForm,
     };
   },
@@ -119,10 +164,10 @@ export default {
   border-radius: 24px;
   .header {
     margin-bottom: 30px;
-    text-align:center;
+    text-align: center;
     font-size: 33px;
   }
-  .el-form-item:nth-child(2){
+  .el-form-item:nth-child(2) {
     margin-bottom: 0;
   }
   .forget {

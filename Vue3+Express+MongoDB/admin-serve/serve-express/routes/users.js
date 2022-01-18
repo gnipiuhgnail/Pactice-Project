@@ -22,6 +22,9 @@ module.exports = (app) => {
   app.delete('/deleteuser/:id',(req, res, next)=>{
     user.findAndDelete(req.params.id,res)
   })
+  app.post('/upload',(req, res, next)=>{
+    console.log("req",req.body)
+  })
 }
 
 
