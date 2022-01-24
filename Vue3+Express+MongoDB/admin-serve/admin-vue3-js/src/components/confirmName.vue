@@ -1,3 +1,4 @@
+// 忘记密码-输入账号
 <template>
   <el-form :model="ruleFormDate" :rules="rules" ref="ruleForm">
     <el-form-item prop="name">

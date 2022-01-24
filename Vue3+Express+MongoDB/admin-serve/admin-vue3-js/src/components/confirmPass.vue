@@ -1,3 +1,4 @@
+// 忘记密码-输入新密码
 <template>
   <el-form :model="ruleFormDate" status-icon :rules="rules" ref="ruleForm">
     <el-form-item>

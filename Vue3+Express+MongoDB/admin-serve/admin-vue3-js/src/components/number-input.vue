@@ -1,3 +1,4 @@
+// 数字输入框
 <template>
   <el-input v-model="number" :placeholder="placeholder"></el-input>
 </template>
