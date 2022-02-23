@@ -1,0 +1,1 @@
+// prop，emits，provde和inject的区别
