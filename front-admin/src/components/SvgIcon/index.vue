@@ -1,25 +1,24 @@
    <template>
   <svg :class="svgClass" v-bind="$attrs">
-    <use :xlink:href="iconName"/>
+    <use :xlink:href="iconName" />
   </svg>
 </template>
 <script setup>
-
 import { defineProps, computed } from "vue";
 
 const props = defineProps({
   iconClass: {
-      type: String,
-      required: true
-    },
-})
+    type: String,
+    required: true,
+  },
+});
 
-const iconName = computed(()=>`#icon-${props.iconClass}`);
-const svgClass = computed(()=> {
+const iconName = computed(() => `#icon-${props.iconClass}`);
+const svgClass = computed(() => {
   if (props.iconClass) {
-        return `svg-icon icon-${props.iconClass}`
-      }
-      return 'svg-icon'
+    return `svg-icon icon-${props.iconClass}`;
+  }
+  return "svg-icon";
 });
 </script>
 

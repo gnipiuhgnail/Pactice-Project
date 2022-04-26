@@ -36,7 +36,7 @@ export const components = [
 ```
 ##### main.js 全局注册
 ```
-import { components, plugin }from '../src/components/elements/index'
+import { components, plugin } from '../src/components/elements/index'
 import 'element-plus/dist/index.css'
 const app = createApp(App)
 // element组件部分导入
