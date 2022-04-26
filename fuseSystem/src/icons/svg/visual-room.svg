@@ -1,0 +1,7 @@
+<!-- 机房位置管理-机房可视化跳转按钮 -->
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
+  <g id="图标" transform="translate(0 0)">
+    <rect id="矩形_16" data-name="矩形 16" width="14" height="14" transform="translate(0)" fill="none"/>
+    <path id="路径_8515" data-name="路径 8515" d="M97.233,85.333a2.1,2.1,0,0,1,2.1,2.1v9.8a2.1,2.1,0,0,1-2.1,2.1h-9.8a2.1,2.1,0,0,1-2.1-2.1v-9.8a2.1,2.1,0,0,1,2.1-2.1h9.8Zm-7.7,5.6h-2.8v6.3a.7.7,0,0,0,.618.7l.082,0h2.1Zm8.4,0h-7v7h6.3a.7.7,0,0,0,.7-.618l0-.082Zm-.7-4.2h-9.8a.7.7,0,0,0-.7.618l0,.082v2.1h11.2v-2.1a.7.7,0,0,0-.7-.7Z" transform="translate(-85.333 -85.333)" fill="#fff"/>
+  </g>
+</svg>

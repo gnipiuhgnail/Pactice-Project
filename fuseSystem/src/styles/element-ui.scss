@@ -1,0 +1,120 @@
+// cover some element-ui styles
+$blue:#409eff;
+.el-breadcrumb__inner,
+.el-breadcrumb__inner a {
+    font-weight: 400 !important;
+}
+
+
+/* 按钮 */
+.el-button{
+  font-family: 'siyuan';
+}
+
+.el-button--primary{
+    background-color: #5782cf !important;
+}
+.el-button--small{
+  font-size: 14px !important;
+}
+/* 弹窗 */
+// to fixed https://github.com/ElemeFE/element/issues/2461
+.el-dialog {
+    // min-width: 800px;
+    transform: none;
+    left: 0;
+    position: relative;
+    .el-dialog__header {
+      padding: 24px;
+      font-weight: 500;
+        // border-bottom: 4px solid $blue;
+        .el-dialog__title {
+            &::before {
+                content: "";
+                display: inline-block;
+                width: 4px;
+                height: 18px;
+                background-color: #5782CF;
+                margin: 4px 10px 0 0;
+                border-radius: 25%;
+                vertical-align:text-top
+            }
+        }
+    }
+    .el-select{
+      width: 100%;
+    }
+    .el-radio{
+      margin-right: 24px;
+    }
+    .el-radio__label{
+      padding-left: 8px;
+    }
+    .el-input-number{
+      width: 100%;
+    }
+    .el-dialog__body {
+      padding: 0 40px;
+    }
+    .el-dialog__footer {
+      padding: 0 24px 24px;
+    }
+  //   .elDialogFooter {
+  //     margin-right: -16px;
+  //     margin-top: 24px;
+  //     text-align: right;
+  // }
+}
+
+
+
+// dropdown
+.el-dropdown-menu {
+    a {
+        display: block
+    }
+}
+
+/* 表格 */
+.el-table {
+  & .el-table__row .el-table__cell{ // 表格行高度 59
+    padding: 4px 0;
+  }
+  & th.el-table__cell{ // 表格头 行高度43
+    padding: 9.5px 0;
+  }
+  & .cell{
+    padding-left: 16px;
+  }
+  & .cell .el-button{
+    margin: 0 24px 0 0 !important;
+  }
+}
+// 表格悬停提示
+.el-popper.tablePoper{
+  width: 200px;
+  color: #606266;
+  font-size: 14px;
+  .el-popper__arrow{
+    display: none;
+  }
+}
+
+
+
+
+// 表头排序三角的颜色
+.el-table .sort-caret{
+  &.descending{
+    border-top-color: #fff;
+  }
+  &.ascending {
+    border-bottom-color: #fff;
+  }
+}
+
+
+/* 文本框样式 */
+.el-textarea .el-textarea__inner {
+  resize: none;
+}
